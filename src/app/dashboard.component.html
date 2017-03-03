@@ -1,0 +1,18 @@
+<h4>Top Heroes</h4>
+
+<div class="mdl-grid">
+	<div *ngFor="let hero of heroes" class="mdl-cell mdl-cell--3-col">
+		<div class="demo-card-square mdl-card mdl-shadow--2dp">
+			<div class="mdl-card__title mdl-card--expand">
+				<h2 class="mdl-card__title-text">{{hero.name}}</h2>
+			</div>
+			<div class="mdl-card__actions mdl-card--border">
+				<a (click)="gotoDetail(hero)" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+          View
+        </a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<sg-hero-search></sg-hero-search>

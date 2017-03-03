@@ -1,0 +1,12 @@
+{
+  "extends": "./config/tslint.rules",
+  "rules": {
+    // https://github.com/Microsoft/vscode-tslint/issues/70
+    "no-for-in-array": false,
+    "restrict-plus-operands": false,
+    // https://github.com/Microsoft/tslint-microsoft-contrib/issues/168
+    "no-relative-imports": false,
+    // AppModule.ts > app.module.ts
+    "export-name": false
+  }
+}
