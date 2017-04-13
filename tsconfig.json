@@ -1,13 +1,35 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "paths": {
+      "*": ["typings/*"],
+      "@/*": ["src/*"]
+    },
+    "target": "es6",
+    "outDir": "dist",
     "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "removeComments": false,
+    "declaration": true,
     "noImplicitAny": true,
-    "suppressImplicitAnyIndexErrors": true
-  }
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+    // "suppressImplicitAnyIndexErrors": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "src/**/*",
+    "typings/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

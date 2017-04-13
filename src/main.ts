@@ -1,13 +1,16 @@
 /**
- *
+ * main.ts
  */
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import * as Vue from 'vue';
 
-import { AppModule } from './app/app.module';
+import { Navbar } from '@/components/navbar';
+import { router } from '@/router';
 
-if (process.env.ENV === 'production') {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule);
+// tslint:disable-next-line:no-unused-new
+new Vue({
+  el: '#app-main',
+  router,
+  components: {
+    navbar: Navbar
+  }
+});
