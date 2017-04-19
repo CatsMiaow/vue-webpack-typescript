@@ -1,7 +1,7 @@
 /**
  * components/about/About.ts
  */
-import * as Vue from 'vue';
+import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { logger } from '@/utils/logger';

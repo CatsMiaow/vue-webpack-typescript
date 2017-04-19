@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint ./src/**/*.ts",
     "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "start": "webpack-dev-server --inline --progress --port 8080"
+    "dev": "webpack-dev-server --inline --open --progress --profile --port 3000",
+    "httpd": "lite-server --baseDir=dist",
+    "prestart": "npm run build",
+    "start": "npm run httpd"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -25,6 +28,7 @@
     "html-loader": "^0.4.5",
     "html-webpack-plugin": "^2.28.0",
     "json-loader": "^0.5.4",
+    "lite-server": "^2.3.0",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.16.1",
     "tslint": "<5",

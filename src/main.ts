@@ -1,10 +1,12 @@
 /**
  * main.ts
  */
-import * as Vue from 'vue';
+import Vue from 'vue';
 
 import { Navbar } from '@/components/navbar';
 import { router } from '@/router';
+
+import '@/styles/style.css';
 
 // tslint:disable-next-line:no-unused-new
 new Vue({

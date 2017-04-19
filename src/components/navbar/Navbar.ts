@@ -1,7 +1,7 @@
 /**
  * components/navbar/Navbar.ts
  */
-import * as Vue from 'vue';
+import Vue from 'vue';
 import Component from 'vue-class-component';
 
 import { ILink } from '@/components/navbar/types.ts';
