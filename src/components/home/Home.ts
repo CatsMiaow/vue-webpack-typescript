@@ -4,10 +4,13 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
+import { logger } from '@/utils/logger';
+
 @Component({
   template: <string>require('./home.html')
 })
 export class Home extends Vue {
-  public title: string = 'vue-webpack-typescript';
-  public repo: string = 'https://github.com/CatsMiaow/vue-webpack-typescript';
+  public mounted(): void {
+    this.$nextTick(() => logger.info('Home mounted'));
+  }
 }

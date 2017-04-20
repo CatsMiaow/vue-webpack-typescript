@@ -8,9 +8,11 @@
   </head>
 
   <body>
-    <div id="app-main">
-      <navbar :inverted="false"></navbar>
-      <router-view>Loading...</router-view>
+    <div id="app-main" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <navbar></navbar>
+      <main class="mdl-layout__content">
+        <router-view><div class="mdl-spinner mdl-js-spinner is-active"></div></router-view>
+      </main>
     </div>
   </body>
 </html>

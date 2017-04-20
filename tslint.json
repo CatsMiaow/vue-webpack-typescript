@@ -1,8 +1,10 @@
 {
   "extends": "tslint-microsoft-contrib",
   "rules": {
-    "no-console": [false],
     "no-parameter-properties": false,
+
+    // watch: $route()
+    "function-name": false,
 
     // import { default as Component } from 'vue-class-component';
     "import-name": false,

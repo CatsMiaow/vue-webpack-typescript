@@ -3,6 +3,7 @@
  */
 export class Logger {
   public info(message: string): void {
+    // tslint:disable-next-line:no-console
     console.info(message);
   }
 

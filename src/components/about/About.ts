@@ -10,9 +10,7 @@ import { logger } from '@/utils/logger';
   template: <string>require('./about.html')
 })
 export class About extends Vue {
-  public repo: string = 'https://github.com/CatsMiaow/vue-webpack-typescript';
-
   public mounted(): void {
-    this.$nextTick(() => logger.info('About ready'));
+    this.$nextTick(() => logger.info('About mounted'));
   }
 }
