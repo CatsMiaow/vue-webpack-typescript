@@ -1,6 +1,6 @@
 # vue-webpack-typescript
 Vue.js Webpack Structure for TypeScript Example
-
+> It is a structure that separates templates without using a single file of `*.vue` extension.
 
 ## Installation
 ```js
