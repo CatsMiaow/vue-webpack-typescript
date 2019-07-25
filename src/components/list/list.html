@@ -1,26 +1,36 @@
-<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+<div>
+
+<v-simple-table>
   <thead>
     <tr>
-      <th>id</th>
-      <th class="mdl-data-table__cell--non-numeric">name</th>
-      <th class="mdl-data-table__cell--non-numeric">username</th>
-      <th class="mdl-data-table__cell--non-numeric">email</th>
-      <th class="mdl-data-table__cell--non-numeric">address</th>
-      <th class="mdl-data-table__cell--non-numeric">phone</th>
-      <th class="mdl-data-table__cell--non-numeric">website</th>
-      <th class="mdl-data-table__cell--non-numeric">company</th>
+      <th>Id</th>
+      <th class="text-left">Name</th>
+      <th class="text-left">Username</th>
+      <th class="text-left">Email</th>
+      <th class="text-left">Address</th>
+      <th class="text-left">Phone</th>
+      <th class="text-left">Website</th>
+      <th class="text-left">Company</th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="item in items" :key="item.id">
-      <td>{{item.id}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.name}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.username}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.email}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.address.street}}, {{item.address.suite}}, {{item.address.city}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.phone}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.website}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{item.company.name}}</td>
-    </tr>
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.username}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.address.street}}, {{item.address.suite}}, {{item.address.city}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.website}}</td>
+        <td>{{item.company.name}}</td>
+      </tr>
   </tbody>
-</table>
+</v-simple-table>
+
+<v-flex class="text-right" mt-5>
+  <v-btn to="/" min-width="100" color="error">
+    <v-icon left>arrow_back</v-icon> Home
+  </v-btn>
+</v-flex>
+
+</div>

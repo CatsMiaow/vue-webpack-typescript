@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vue.js Webpack for TypeScript</title>
-    <base href="/">
-  </head>
 
-  <body>
-    <div id="app-main" class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Vue.js Webpack for TypeScript</title>
+  <base href="./">
+</head>
+
+<body>
+  <!-- https://vuetifyjs.com/en/components/application#default-application-markup -->
+  <v-app id="app-main">
+    <!-- <v-navigation-drawer app></v-navigation-drawer> -->
+    <v-app-bar app>
       <navbar></navbar>
-      <main class="mdl-layout__content">
-        <router-view><div class="mdl-spinner mdl-js-spinner is-active"></div></router-view>
-      </main>
-    </div>
-  </body>
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid fill-height align-start>
+        <v-layout row wrap align-center justify-center v-show="loading">
+          <v-progress-circular indeterminate :size="100" :width="4" color="green"></v-progress-circular>
+        </v-layout>
+
+        <router-view v-show="!loading" @loading="loading = true" @ready="loading = false"></router-view>
+      </v-container>
+    </v-content>
+
+    <v-footer app>Footer</v-footer>
+  </v-app>
+</body>
+
 </html>

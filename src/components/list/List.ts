@@ -1,50 +1,51 @@
-/**
- * components/list/List.ts
- */
 import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Component } from 'vue-property-decorator';
 
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import Axios, { AxiosInstance, AxiosResponse } from 'axios';
 
 import { IUser } from '@/components/list/types.ts';
 import { logger } from '@/utils/logger';
 
-// https://router.vuejs.org/kr/advanced/data-fetching.html#탐색하기-전에-가져-오기
+// https://router.vuejs.org/guide/advanced/data-fetching.html
 // https://github.com/vuejs/vue-class-component#adding-custom-hooks
 
+/**
+ * HomeComponent
+ */
 @Component({
-  template: <string>require('./list.html')
+  template: require('./list.html')
 })
 export class List extends Vue {
   public items: IUser[] = [];
-  private url: string = 'https://jsonplaceholder.typicode.com/users';
-  private axios: AxiosInstance;
+  private readonly url: string = 'https://jsonplaceholder.typicode.com/users';
+  private readonly axios: AxiosInstance;
 
   constructor() {
     super();
-    this.axios = axios;
+    this.axios = Axios;
   }
 
-  public created(): void {
+  public async created(): Promise<void> {
     logger.info('List created');
-    this.fetchData();
+    this.$emit('loading');
+    await this.fetchData();
   }
 
   public mounted(): void {
-    this.$nextTick(() => logger.info('List mounted'));
+    logger.info('List mounted');
+    this.$nextTick(() => this.$emit('ready'));
   }
 
-  private fetchData(): void {
+  private async fetchData(): Promise<void> {
     if (this.items.length) {
       return;
     }
 
-    this.axios.get(this.url)
-      .then((response: AxiosResponse) => {
-        this.items = response.data;
-      })
-      .catch((error: Error) => {
-        console.error(error);
-      });
+    try {
+      const response: AxiosResponse = await this.axios.get(this.url);
+      this.items = response.data;
+    } catch (err) {
+      logger.error(err);
+    }
   }
 }

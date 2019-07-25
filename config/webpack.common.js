@@ -1,21 +1,19 @@
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const helpers = require('./helpers');
-
+const { isDev, root } = require('./helper');
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    polyfills: './src/polyfills.ts',
+    vendor: './src/vendor.ts',
+    app: './src/main.ts'
   },
 
   resolve: {
     extensions: ['.js', '.ts', '.html'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': helpers.root('src')
+      '@': root('src')
     }
   },
 
@@ -23,10 +21,19 @@ module.exports = {
     rules: [{
       test: /\.ts$/,
       enforce: 'pre',
-      loader: 'tslint-loader'
+      loader: 'tslint-loader',
+      options: {
+        configFile: 'tslint.json',
+      }
     }, {
       test: /\.ts$/,
-      loader: 'awesome-typescript-loader'
+      loader: 'awesome-typescript-loader',
+      options: {
+        configFileName: 'tsconfig.json',
+        declaration: isDev,
+        sourceMap: isDev,
+        inlineSources: isDev
+      }
     }, {
       test: /\.html$/,
       loader: 'html-loader'
@@ -35,24 +42,23 @@ module.exports = {
       loader: 'file-loader?name=assets/[name].[hash].[ext]'
     }, {
       test: /\.css$/,
-      exclude: helpers.root('src', 'app'),
+      exclude: root('src', 'components'),
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
-        use: 'css-loader?sourceMap'
+        use: [{
+          loader: 'css-loader',
+          options: { sourceMap: isDev },
+        }]
       })
     }, {
       test: /\.css$/,
-      include: helpers.root('src', 'app'),
+      include: root('src', 'components'),
       loader: 'raw-loader'
     }]
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills']
-    }),
-
-    new HtmlWebpackPlugin({
+    new HtmlPlugin({
       template: 'src/index.html'
     })
   ]

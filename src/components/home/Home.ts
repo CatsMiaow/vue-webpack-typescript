@@ -1,16 +1,22 @@
-/**
- * components/home/Home.ts
- */
 import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Component } from 'vue-property-decorator';
 
 import { logger } from '@/utils/logger';
 
+/**
+ * HomeComponent
+ */
 @Component({
-  template: <string>require('./home.html')
+  template: require('./home.html')
 })
 export class Home extends Vue {
+  public created(): void {
+    logger.info('Home created');
+    this.$emit('loading');
+  }
+
   public mounted(): void {
-    this.$nextTick(() => logger.info('Home mounted'));
+    logger.info('Home mounted');
+    this.$nextTick(() => this.$emit('ready'));
   }
 }

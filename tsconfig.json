@@ -7,27 +7,19 @@
     },
     "target": "es5",
     "outDir": "dist",
-    // "module": "commonjs",
-    // "moduleResolution": "node",
+    "module": "es2015",
+    "moduleResolution": "node",
     "declaration": true,
-    "noImplicitAny": true,
+    "strict": true, // noImplicitAny, noImplicitThis, alwaysStrict, strictBindCallApply, strictNullChecks, strictFunctionTypes, strictPropertyInitialization
     "noImplicitReturns": true,
-    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noFallthroughCasesInSwitch": true,
-    "strictNullChecks": true,
     "removeComments": true,
     "sourceMap": true,
     "inlineSources": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true,
-
-    // Vue.js Recommended Configuration
-    "module": "es2015",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "lib": ["dom", "es5", "es2015.promise"]
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": [
     "src/**/*",

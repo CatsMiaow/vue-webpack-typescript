@@ -1,14 +1,11 @@
-/**
- * router.ts
- */
 import Vue from 'vue';
-import Router from 'vue-router';
+import VueRouter from 'vue-router';
 
 import * as component from '@/components';
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
-export const router: Router = new Router({
+export const router: VueRouter = new VueRouter({
   routes: [
     { path: '/', component: component.Home },
     { path: '/about', component: component.About },

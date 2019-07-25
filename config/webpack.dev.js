@@ -1,21 +1,26 @@
+const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const commonConfig = require('./webpack.common.js');
-const helpers = require('./helpers');
-
+const { root } = require('./helper');
 
 module.exports = webpackMerge(commonConfig, {
-  devtool: 'cheap-module-source-map',
+  mode: 'development',
+  devtool: 'eval-source-map',
 
   output: {
-    path: helpers.root('dist'),
+    path: root('dist'),
     publicPath: 'http://localhost:3000/',
     filename: '[name].js',
     chunkFilename: '[id].chunk.js'
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development',
+      DEBUG: true
+    })
   ],
 
   devServer: {

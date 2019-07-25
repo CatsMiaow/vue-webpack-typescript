@@ -1,18 +1,18 @@
-/**
- * components/navbar/Navbar.ts
- */
 import Vue from 'vue';
-import Component from 'vue-class-component';
-import Router from 'vue-router';
+import { Component } from 'vue-property-decorator';
+import { Route } from 'vue-router';
 
 import { ILink } from '@/components/navbar/types.ts';
 import { logger } from '@/utils/logger';
 
+/**
+ * NavbarComponent
+ */
 @Component({
-  template: <string>require('./navbar.html'),
+  template: require('./navbar.html'),
   watch: {
-    $route(current: Router.Route, previous: Router.Route): void {
-      logger.info('Changed current path to: ' + this.$route.path);
+    $route(current: Route, previous: Route): void {
+      logger.info(`Changed current path to: ${this.$route.path}`);
     }
   }
 })

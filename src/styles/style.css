@@ -1,12 +1,8 @@
-.mdl-navigation__link.active {
-  text-decoration: overline;
+/*#region Vuetify*/
+.theme--light .list,
+.theme--light .card,
+.theme--light .table,
+.theme--light .input-group.input-group--solo {
+  background-color: #FAFAFA;
 }
-
-.demo-card-square.mdl-card {
-  width: 320px;
-  height: 320px;
-}
-.demo-card-square > .mdl-card__title {
-  color: #fff;
-  background-color: #46B6AC;
-}
+/*#endregion Vuetify*/

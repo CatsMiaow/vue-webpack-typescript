@@ -1,9 +1,14 @@
-<div class="mdl-grid">
-  <div class="mdl-cell mdl-cell--6-col">
-    <img src="~@/assets/img/vue.png" width="200" />
-  </div>
-  <div class="mdl-cell mdl-cell--4-col">
-    <router-link to="/list" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Next</router-link>
-  </div>
-  <div class="mdl-cell mdl-cell--2-col">-</div>
-</div>
+<v-card max-width="400">
+  <!-- https://github.com/vuejs/vue-loader/issues/193 -->
+  <v-flex class="text-center">
+    <img src="~@/assets/img/vue.png" width="100" />
+  </v-flex>
+
+  <v-card-title>About</v-card-title>
+  <v-card-text>Blablablabla...</v-card-text>
+  <v-card-actions>
+    <v-btn to="/list" min-width="100" color="warning">
+      List <v-icon right>arrow_forward</v-icon>
+    </v-btn>
+  </v-card-actions>
+</v-card>

@@ -1,16 +1,22 @@
-/**
- * components/about/About.ts
- */
 import Vue from 'vue';
-import Component from 'vue-class-component';
+import { Component } from 'vue-property-decorator';
 
 import { logger } from '@/utils/logger';
 
+/**
+ * AboutComponent
+ */
 @Component({
-  template: <string>require('./about.html')
+  template: require('./about.html')
 })
 export class About extends Vue {
+  public created(): void {
+    logger.info('About created');
+    this.$emit('loading');
+  }
+
   public mounted(): void {
-    this.$nextTick(() => logger.info('About mounted'));
+    logger.info('About mounted');
+    this.$nextTick(() => this.$emit('ready'));
   }
 }

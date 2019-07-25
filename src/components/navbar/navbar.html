@@ -1,16 +1,12 @@
-<header class="mdl-layout__header">
-  <div class="mdl-layout__header-row">
-    <!-- Title -->
-    <span class="mdl-layout-title">Vue-Webpack-TypeScript</span>
-    <!-- Add spacer, to align navigation to the right -->
-    <div class="mdl-layout-spacer"></div>
-    <!-- Navigation -->
-    <nav class="mdl-navigation">
-      <router-link
-        v-for="(link, index) in links" :key="index"
-        v-bind:to="link.path"
-        class="mdl-navigation__link"
-        active-class="active" exact>{{link.name}}</router-link>
-    </nav>
-  </div>
-</header>
+<v-toolbar dark color="primary" dense>
+  <v-toolbar-title>Vue-Webpack-TypeScript</v-toolbar-title>
+
+  <v-spacer></v-spacer>
+
+  <v-toolbar-items>
+    <v-btn text
+      v-for="(link, index) in links" :key="index"
+      :to="link.path"
+      exact-active-class>{{link.name}}</v-btn>
+  </v-toolbar-items>
+</v-toolbar>

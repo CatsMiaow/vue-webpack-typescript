@@ -1,9 +1,9 @@
 /**
- * utils/logger.ts
+ * Logs
  */
 export class Logger {
+  // tslint:disable:no-console
   public info(message: string): void {
-    // tslint:disable-next-line:no-console
     console.info(message);
   }
 
@@ -14,6 +14,7 @@ export class Logger {
   public error(message: string): void {
     console.error(message);
   }
+  // tslint:enable:no-console
 }
 
 export const logger: Logger = new Logger();
